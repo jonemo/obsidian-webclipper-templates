@@ -1,0 +1,34 @@
+{
+	"schemaVersion": "0.1.0",
+	"name": "Linkedin Post",
+	"behavior": "create",
+	"noteContentFormat": "Keywords mentioned: {{\"Company names, brand names, product names, standard names and numbers that are mentioned in the main text of this Linkedin posts. Remove all HTML markup, comma separate the names, wrap each name with double square brackets like this example: [[Company Name]].\"}}\n\nKeywords mentioned in comments: {{\"Company names, brand names, product names, standard names and numbers that are mentioned in the comments under this Linkedin posts. Remove all HTML markup, comma separate the names, wrap each name with double square brackets like this example: [[Company Name]].\"}}\n\nPublished by [[{{\"name of the person or company who posted this to Linkedin\"}}]]\n\n---\n\n{{selectorHtml:.feed-shared-update-v2__description|markdown}}",
+	"properties": [
+		{
+			"name": "author",
+			"value": "[[{{\\\"name of the person or company who posted this to Linkedin\\\"}}]]",
+			"type": "multitext"
+		},
+		{
+			"name": "posted",
+			"value": "{{published}} before {{date|date:\\\"YYYY-MM-DD\\\"}}",
+			"type": "text"
+		},
+		{
+			"name": "source",
+			"value": "{{url|split:\\\"?\\\"|first}}",
+			"type": "text"
+		},
+		{
+			"name": "created",
+			"value": "{{date}}",
+			"type": "date"
+		}
+	],
+	"triggers": [
+		"https://www.linkedin.com/posts/"
+	],
+	"noteNameFormat": "Linkedin {{\"Name of the person or company who posted this to Linkedin\"}} {{\"Write a factual title for this Linkedin post in 10 words or less\"}}",
+	"path": "Clippings",
+	"context": "{{selectorHtml:.feed-shared-update-v2}}"
+}
